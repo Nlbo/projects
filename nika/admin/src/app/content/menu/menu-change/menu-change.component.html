@@ -1,0 +1,54 @@
+<form [formGroup]="validateForm" >
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 mt-5">
+
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Title</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="title">
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Url</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="url">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" >Type</nz-form-label>
+            <nz-select tagName="input" [(ngModel)]="selectedValueType" (ngModelChange)="foo(selectedValueType)" formControlName="type" style="max-width: 210px;">
+              <nz-option nzLabel="Portfolio" nzValue="portfolio"></nz-option>
+              <nz-option nzLabel="Post" nzValue="post"></nz-option>
+            </nz-select>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" >TypeId</nz-form-label>
+            <nz-select tagName="input" #selectedValueTypeId formControlName="typeId" style="max-width: 210px;">
+              <nz-option *ngFor="let item of allItems" nzLabel="{{item.title}}" nzValue="{{item._id}}"></nz-option>
+            </nz-select>
+          </nz-form-item>
+        </nz-form-item>
+      </div>
+      <div class="col-4 offset-4">
+        <div class="row">
+          <div class="col-11 offset-1">
+            <button
+              nz-button
+              [nzType]="'primary'"
+              [nzLoading]="uploading"
+              (click)="handleUpload()"
+              [disabled]="validateForm.invalid"
+              style="width: 100%">
+              {{ uploading ? 'Uploading' : 'Start Upload' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+

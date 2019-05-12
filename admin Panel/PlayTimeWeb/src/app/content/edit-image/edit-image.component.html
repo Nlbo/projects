@@ -1,0 +1,27 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 mt-3">
+      <div class="card">
+        <img class="card-img-top img-fluid mt-2" [src]="cycleDataItems.path" style="width: 300px;margin: 0 auto;" alt="Card image cap">
+        <div class="card-body">
+          <div *ngFor="let item of cycleDataSpans;let i = index" #input{{i}} class="input-group input-group-sm mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">{{item}}</span>
+            </div>
+            <input type="text" [name]="cycleDataItems[item + '']" [value]="cycleDataItems[item + '']" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 m-2">
+      <button class="btn btn-success" style="width: 100%" (click)="save()">SAVE</button>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>

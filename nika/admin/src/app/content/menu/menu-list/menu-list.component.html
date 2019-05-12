@@ -1,0 +1,22 @@
+<nz-table #middleTable nzSize="middle" [nzData]="menus" [nzPageSize]="8">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Type</th>
+    <th>Url</th>
+    <th><button style="text-align: center;padding-bottom: 10px; margin: 0 5px 0 5px;" class="btn btn-success" (click)="add()"><i nz-icon type="folder-add" theme="outline"></i></button></th>
+  </tr>
+  </thead>
+  <tbody [sortablejs]="menus" [sortablejsOptions]="options">
+  <tr *ngFor="let data of middleTable.data">
+    <td>{{ data.title }}</td>
+    <td>{{ data.type }}</td>
+    <td>{{ data.url }}</td>
+    <td>
+      <i nz-icon type="edit" theme="outline" class="_btn_edit" (click)="edit(data)"></i>
+      <nz-divider nzType="vertical"></nz-divider>
+      <i nz-icon type="delete" theme="outline" class="_btn_delete" (click)="showDeleteConfirm(data)"></i>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

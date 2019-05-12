@@ -1,0 +1,23 @@
+<div class="custom-container pt-0">
+    <div class="row">
+        <div class="col-4">
+            <div class="img-wrapper img" *ngFor="let img of work.images">
+
+               <img class="" [src]="(imgPath +img)" alt="image">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="detail-title">
+                {{work.title}}
+            </div>
+            <div class="detail-description">
+                {{work.description}}
+            </div>
+            <!--<div class="content-for-form">-->
+
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>

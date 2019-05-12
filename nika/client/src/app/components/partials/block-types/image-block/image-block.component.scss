@@ -1,0 +1,159 @@
+.image-block {
+  position: relative;
+}
+
+.image-wrapper img {
+  position: relative;
+  width: 200px;
+  top: 50%;
+  transform: translateY(-50%);
+  @media (max-width: 1600px) {
+    width: 100px;
+  }
+}
+
+//======== hover opacity
+
+.opacity {
+  height: 0;
+  width: 0;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, .7);
+  .opacity-header {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    font-size: 0;
+    color: #ffffff;
+    font-weight: bold;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+}
+
+.show-opacity {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  -webkit-transition: all;
+  transition: all .5s ease;
+
+  .opacity-header {
+    text-align: center;
+    width: 100%;
+    font-size: 2.5vw;
+    //transform: rotate(0);
+    animation-duration: 1s;
+    animation-name: show;
+
+    @keyframes show {
+      from {
+        font-size: 0;
+        opacity: 0;
+        //transform: rotate(0);
+      }
+      to {
+        font-size: 2.5vw;
+        opacity: 1;
+        //transform: rotate(360deg);
+      }
+    }
+  }
+}
+
+//======================== hover rotate ===================================
+
+.rotate-header {
+
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  @media (max-width: 1600px) {
+    //width: 100px;
+  }
+  font-size: 2.5vw;
+  color: #ffffff;
+  display: none;
+}
+
+.rotate-block {
+  position: relative;
+  transform: rotateY(180deg);
+
+  .img {
+    height: 100%;
+    transform: rotateY(180deg);
+    //display: none;
+  }
+
+  animation-duration: 500ms;
+  animation-name: h-rotate;
+}
+
+.show-rotate {
+  animation-duration: 500ms;
+  animation-name: rotate;
+  transform: rotateY(360deg);
+  @keyframes rotate {
+    0% {
+      transform: rotateY(180deg);
+    }
+    50% {
+      display: none !important;
+      transform: rotateY(270deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+}
+
+@keyframes h-rotate {
+  0% {
+    transform: rotateY(360deg);
+  }
+  50% {
+    transform: rotateY(270deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+//======================== hover rotate end ===================================
+
+.for-dRotate{
+  animation-duration: 400ms;
+  animation-name: h-dRotate;
+}
+.dRotate {
+  animation-duration: 400ms;
+  animation-name: dRotate;
+  transform: perspective(800px) rotateY(180deg);  @keyframes dRotate {
+    0% {
+      transform: perspective(800px) rotateY(0);
+    }
+    50% {
+      transform: perspective(800px) rotateY(90deg);
+    }
+    100% {
+      transform: perspective(800px) rotateY(180deg);
+    }
+  }
+  @keyframes h-dRotate {
+    0% {
+      transform: perspective(800px) rotateY(180deg);
+    }
+    50% {
+      transform: perspective(800px) rotateY(90deg);
+    }
+    100% {
+      transform: perspective(800px) rotateY(0deg);
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.custom-page{
+  padding: 100px 100px 0 100px;
+}
+.contact-title{
+  font-weight: bold;
+}
+
+
+
+.mat-grid-tile .mat-figure{
+  justify-content: unset !important;
+}
+.area textarea{
+  border: 1px solid grey;
+  width: 97.5%;
+  height: 80%;
+  resize: none;
+  padding: 10px;
+  outline: none;
+
+}
+.button-row{
+  width: 95%;
+}
+button{
+  width: 200px;
+  height: 40px;
+  color: white !important;
+  background: black !important;
+}
+
+
+

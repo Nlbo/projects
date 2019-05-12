@@ -1,0 +1,47 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<table class="table table-hover mt-2">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Category</th>
+    <th scope="col">Qty. Sub-cat/Image</th>
+    <th scope="col">Sort</th>
+    <th scope="col"><button style="text-align: center;padding-bottom: 10px;" class="btn btn-success" (click)="rout()"><i nz-icon type="folder-add" theme="outline"></i></button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of cycleData;let i = index">
+    <th (click)="foo(item)" scope="row">{{i}}</th>
+    <td (click)="foo(item)">{{item.category}}</td>
+    <td (click)="foo(item)">{{item.subCategoryLength + '/' + item.imagesLength}}</td>
+    <td>
+      <button (click)="sortUp(item, i)" class="btn btn-info" style="background-color:#00152A; padding: 0 0 5px 0;width: 30px;height: 30px;"><i nz-icon type="up" theme="outline"></i></button>
+      <button (click)="sortDown(item, i)" class="btn btn-info ml-2" style="background-color:#00152A; padding: 0 0 5px 0;width: 30px;height: 30px;"><i nz-icon type="down" theme="outline"></i></button>
+    </td>
+    <td>
+      <button style="text-align: center;padding-bottom: 10px;" class="btn btn-warning" (click)="edithCategory(item)"><i nz-icon type="setting" theme="outline"></i></button>
+      <button style="text-align: center;padding-bottom: 10px;" class="btn btn-danger ml-1" (click)="deleteCategory(item)"><i nz-icon type="delete" theme="outline"></i></button>
+    </td>
+  </tr>
+  </tbody>
+  <tbody>
+  <tr>
+    <th (click)="routremoved()" scope="row">#</th>
+    <td (click)="routremoved()">Removed</td>
+    <td (click)="routremoved()">{{removedImagesLength}}</td>
+    <td (click)="routremoved()"></td>
+    <td (click)="routremoved()"></td>
+  </tr>
+  </tbody>
+</table>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <button [ngStyle]="{'background-color':disabled === false ? '' : 'gray', 'border':disabled === false ? '' : '1px solid gray' }" style="width: 100%" class="btn btn-success" (click)="save()">SAVE</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="side-bar-content h-100">
+
+    <div class="an h-50">
+        <div class="side-bar-header">
+
+            <div class="top-part row h-20">
+                <div class="menu-title col-6">
+                    <a [routerLink]="[{ outlets: { primary: [] } }]" style="cursor: pointer;"><h1>nika</h1></a>
+                </div>
+                <div class="hamburger-logo col-6">
+                    <div id="toggle-icon" class="hamburger-logo-toggle-img float-right">
+                        <div class="hamburger-line-1"></div>
+                        <div class="hamburger-line-2"></div>
+                        <div class="hamburger-line-3"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-part">
+                <div id="menu-content" class="side-bar-about h-75">
+                    <div class="toggle-content font-weight-bolder toggle-content-text">{{menuText}}</div>
+                    <div class="toggle-content font-weight-bolder links-content">
+                        <div class="menu-items"><a
+                                [routerLink]="[{ outlets: { primary: ['about'] }}]">{{ 'about' | uppercase}}</a></div>
+                        <div class="menu-items"><a routerLink="/works">{{'work' | uppercase}}</a></div>
+                        <div class="menu-items"><a routerLink="/stories">{{'stories' | uppercase}}</a></div>
+                        <div class="menu-items"><a routerLink="/careers">{{'careers' | uppercase}}</a></div>
+                        <div class="menu-items"><a
+                                [routerLink]="[{ outlets: { primary: ['contact'] } }]">{{'contact' | uppercase}}</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="side-bar-meet-link h-25">
+                    <p>Meet Us. <a href="">Click Here</a></p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="hidden-footer">
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+
+    <div class="side-bar-logo h-50" style="background: #000a1d;text-align: center;">
+        <div class="logo-wrapper h-100">
+            <img class="align-self-center" src="../../../../assets/images/logo.PNG" alt="logo">
+        </div>
+    </div>
+
+</div>

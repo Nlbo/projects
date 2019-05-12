@@ -1,0 +1,28 @@
+.home-page{
+  height: -webkit-fill-available;
+}
+
+.my-slider-item{
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 100px);
+  padding: 50px;
+}
+.item-content{
+  position: relative;
+  top: 100%;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.item-title, .items-counter{
+  font-size: 35px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.item-description{
+  font-size: 20px;
+  color: #ffffff;
+}

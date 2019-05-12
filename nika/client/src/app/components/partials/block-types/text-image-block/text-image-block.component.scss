@@ -1,0 +1,24 @@
+.text-image-block{
+  color: #ffffff;
+}
+.sub-title{
+  font-size: 2.8vw;
+  font-weight: normal;
+}
+.block-title{
+  font-size: 3.7vw;
+  font-weight: bold;
+}
+.content{
+  padding: 50px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.image-wrapper img{
+  width: 100%;
+  padding: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

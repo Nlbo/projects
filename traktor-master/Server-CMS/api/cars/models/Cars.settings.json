@@ -1,0 +1,36 @@
+{
+  "connection": "default",
+  "collectionName": "cars",
+  "info": {
+    "name": "cars",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "name": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "category": {
+      "default": "",
+      "unique": true,
+      "type": "string",
+      "required": true
+    }
+  }
+}

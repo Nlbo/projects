@@ -1,0 +1,35 @@
+<div class="col-6 offset-3">
+  <nav class="navbar navbar-light bg-light text-center">
+    <input [(ngModel)]="searchValue" (keyup)="filter(searchValue)" class="form-control" style="width: 73%" type="search" placeholder="Search" aria-label="Search">
+    <nz-select class="mt-2 mt-md-0 text-center" style="width: 120px;" [(ngModel)]="selectedValue" nzAllowClear nzPlaceHolder="Choose">
+      <nz-option *ngFor="let table of tables" nzValue="{{table}}" nzLabel="{{table}}"></nz-option>
+    </nz-select>
+  </nav>
+</div>
+
+<nz-table #middleTable nzSize="middle" [nzData]="posts" [nzPageSize]="5">
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th><button style="text-align: center;padding-bottom: 10px; margin: 0 5px 0 5px;" class="btn btn-success" (click)="addPost()"><i nz-icon type="folder-add" theme="outline"></i></button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of middleTable.data">
+    <td><img class="img-thumbnail" style="max-width: 100px" [src]="url + data.image" alt=""></td>
+    <td>{{data.title}}</td>
+    <td>{{data.description}}</td>
+    <td>{{data.created}}</td>
+    <td>{{data.updated}}</td>
+    <td>
+      <i nz-icon type="edit" theme="outline" class="_btn_edit" (click)="edit(data)"></i>
+      <nz-divider nzType="vertical"></nz-divider>
+      <i nz-icon type="delete" theme="outline" class="_btn_delete" (click)="showDeleteConfirm(data)"></i>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

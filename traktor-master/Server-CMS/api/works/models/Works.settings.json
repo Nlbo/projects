@@ -1,0 +1,44 @@
+{
+  "connection": "default",
+  "collectionName": "works",
+  "info": {
+    "name": "works",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "info": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "car": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "about": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<table class="table table-hover mt-2">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Language</th>
+    <th scope="col">Code 2</th>
+    <th scope="col"><button style="text-align: center;padding-bottom: 10px;" class="btn btn-success" (click)="rout()"><i nz-icon type="folder-add" theme="outline"></i></button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of cycleData;let i = index">
+    <th (click)="foo(item)" scope="row">{{i}}</th>
+    <td (click)="foo(item)">{{item.language}}</td>
+    <td (click)="foo(item)">{{item.code}}</td>
+    <td>
+      <button *ngIf="item.code !== 'en'" style="text-align: center;padding-bottom: 10px;" class="btn btn-danger ml-1" (click)="removeLanguage(item)"><i nz-icon type="delete" theme="outline"></i></button>
+    </td>
+  </tr>
+  </tbody>
+  <tbody>
+  </tbody>
+</table>
+
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <button [disabled]="disabled" style="width: 100%" class="btn btn-success" (click)="save()">SAVE</button>
+    </div>
+  </div>
+</div>

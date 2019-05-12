@@ -1,0 +1,138 @@
+<div class="contact custom-page">
+    <div class="row p-0">
+        <div class="contact-title-wrapper col-4">
+            <p class="contact-title">Feeling good about working with us?</p>
+            <p class="contact-description">Please provide a brief description of your bussines and well do our best to
+                get back to you in a timely
+                manner.
+            </p>
+
+        </div>
+        <div class="col-10">
+            <form [formGroup]="form" (ngSubmit)="submit()" class="">
+
+                <mat-grid-list cols="2" rowHeight="100px">
+                    <!--<input type="hidden" formControlName="$key">-->
+
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field>
+                            <input formControlName="fullName" matInput placeholder="Name">
+                            <mat-error>Name required</mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field>
+                            <input formControlName="email" matInput placeholder="Email">
+                            <mat-error *ngIf="form.controls['email'].errors?.required">Email required</mat-error>
+                            <mat-error *ngIf="form.controls['email'].errors?.email">Invalid email.</mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field>
+                            <input formControlName="date" matInput [matDatepicker]="picker" placeholder="Date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [colspan]="1" [rowspan]="1">
+                        <mat-form-field>
+                            <input formControlName="eventName" matInput placeholder="EventName">
+                            <mat-error *ngIf="form.controls['eventName'].errors">Event Name required</mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+
+                <mat-grid-list cols="2" rowHeight="300px">
+                    <mat-grid-tile colspan="2">
+                        <div class="area">
+                            <label>Short brief</label>
+                            <textarea formControlName="text" rows="5" cols="100" matInput></textarea>
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+
+                <div class="button-row text-right">
+                    <button mat-raised-button type="submit" [disabled]="form.invalid">SUBMIT
+                        <div *ngIf="!done" class="spinner-border" role="status" style="position: absolute;right: 20px;">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </button>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!--<form [formGroup]="myForm" novalidate (ngSubmit)="submit()">-->
+<!--<div class="form-group col-6">-->
+
+<!--<input class="form-control" name="name" formControlName="userName" />-->
+<!--<label>Name</label>-->
+<!--<div class="alert alert-danger"-->
+<!--*ngIf="myForm.controls['userName'].invalid && myForm.controls['userName'].touched">-->
+<!--No name specified-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group col-6">-->
+
+<!--<input class="form-control" name="email" formControlName="userEmail" />-->
+<!--<label>Email</label>-->
+<!--<div class="alert alert-danger"-->
+<!--*ngIf="myForm.controls['userEmail'].invalid && myForm.controls['userEmail'].touched">-->
+<!--Incorrect email-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group col-6">-->
+
+<!--<input class="form-control" formControlName="data" />-->
+<!--<label *ngIf="myForm.controls['data'].invalid && myForm.controls['data'].touched">Data</label>-->
+<!--<label ></label>-->
+<!--</div>-->
+<!--<div class="form-group col-6">-->
+
+<!--<input class="form-control" name="name" formControlName="eventName" />-->
+<!--<label>Event name</label>-->
+<!--<div class="alert alert-danger"-->
+<!--*ngIf="myForm.controls['eventName'].invalid && myForm.controls['eventName'].touched">-->
+<!--No event name specified-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+<!--<label>Event name</label>-->
+<!--<textarea name="text" id="" cols="100" rows="5"></textarea>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+
+<!--<button class="btn btn-dark" [disabled]="myForm.invalid">-->
+<!--Submit-->
+<!--</button>-->
+<!--</div>-->
+<!--</form>`-->
+
+
+<!--</div>-->
+<!--<div class="example-container">-->
+<!--<mat-form-field>-->
+<!--<input matInput placeholder="Input">-->
+<!--</mat-form-field>-->
+
+<!--<mat-form-field>-->
+<!--<textarea matInput placeholder="Textarea"></textarea>-->
+<!--</mat-form-field>-->
+
+<!--<mat-form-field>-->
+<!--<mat-select placeholder="Select">-->
+<!--<mat-option value="option">Option</mat-option>-->
+<!--</mat-select>-->
+<!--</mat-form-field>-->
+<!--</div>-->

@@ -1,0 +1,10 @@
+<div style="margin: 10px 0 0 0;min-height: 450px;" class="row" >
+  <div *ngFor="let data of works" class="col-xs-12 col-sm-6 col-md-4">
+  <div class="service_item">
+    <img src="{{url + data.image.url}}" class="img-responsive" alt="Our Services" />
+    <h3>{{data.name}}</h3>
+    <p>{{data.info}}</p>
+    <a (click)="goToCarInfo(data)" class="btn know_btn">Подробнее</a>
+  </div>
+</div>
+</div>

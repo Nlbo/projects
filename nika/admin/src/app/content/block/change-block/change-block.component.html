@@ -1,0 +1,241 @@
+<form [formGroup]="validateForm" >
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 mt-5">
+
+
+        <nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" >Size</nz-form-label>
+            <nz-select tagName="input" [(ngModel)]="selectedSize" formControlName="size" style="max-width: 210px;">
+              <nz-option nzLabel="Small" nzValue="small"></nz-option>
+              <nz-option nzLabel="Middle" nzValue="middle"></nz-option>
+              <nz-option nzLabel="Large" nzValue="large"></nz-option>
+            </nz-select>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-label [nzSm]="6" [nzXs]="24" >Type</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+              <div class="input-group mb-3">
+                <div class="input-group-append">
+                  <input type="hidden" formControlName="type" [(ngModel)]="selectedType">
+                  <span style="width: 100%" class="input-group-text" id="basic-addon2">{{selectedType}}</span>
+                </div>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+
+
+          <!-- ///////////////////////////////////////////////////////////////////////////// -->
+
+
+          <div [ngSwitch]="selectedType">
+            <div *ngSwitchCase="'blog'">
+
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" >Stories</nz-form-label>
+                <nz-select tagName="input" [(ngModel)]="tagValue" nzMode="tags" formControlName="blog" style="max-width: 210px;">
+                  <nz-option *ngFor="let item of allItems" nzLabel="{{item.title}}" nzValue="{{item._id}}"></nz-option>
+                </nz-select>
+              </nz-form-item>
+
+            </div>
+
+            <div *ngSwitchCase="'project'">
+
+
+              <nz-form-item>
+                <nz-form-label [nzSm]="6" [nzXs]="24" >Stories</nz-form-label>
+                <nz-select tagName="input" [(ngModel)]="selectedBlockPost" nzMode="tags" formControlName="portfolio" style="max-width: 210px;">
+                  <nz-option *ngFor="let item of allItems" nzLabel="{{item.title}}" nzValue="{{item._id}}"></nz-option>
+                </nz-select>
+              </nz-form-item>
+
+            </div>
+            <div *ngSwitchCase="'video'">
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Url</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="url">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-12 offset-3 mt-3">
+                <div class="row">
+                  <div class="col-12 offset-1">
+                    <label id="#bb"> Enter Your File
+                      <input id="file" type="file" (change)="onSelectFile($event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'image'">
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24" >Image Size</nz-form-label>
+                  <nz-select tagName="input" [(ngModel)]="selectedImageSize" formControlName="imagesize" style="max-width: 210px;">
+                    <nz-option nzLabel="Full" nzValue="full"></nz-option>
+                    <nz-option nzLabel="Content" nzValue="content"></nz-option>
+                  </nz-select>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Load</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="load">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">BgColor</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="bgcolor">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Hover Text</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="hovertext">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Url</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="url">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-12 offset-3 mt-3">
+                <div class="row">
+                  <div class="col-12 offset-1">
+                    <label id="#bb"> Enter Your Photo
+                      <input id="file" type="file" (change)="onSelectFile($event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'gif'">
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24" >Image Size</nz-form-label>
+                  <nz-select tagName="input" [(ngModel)]="selectedImageSize" formControlName="imagesize" style="max-width: 210px;">
+                    <nz-option nzLabel="Full" nzValue="full"></nz-option>
+                    <nz-option nzLabel="Content" nzValue="content"></nz-option>
+                  </nz-select>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Load</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="load">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">BgColor</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="bgcolor">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Hover Text</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="hovertext">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Url</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="url">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-12 offset-3 mt-3">
+                <div class="row">
+                  <div class="col-12 offset-1">
+                    <label id="#bb"> Enter Your File
+                      <input id="file" type="file" (change)="onSelectFile($event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 offset-3 mt-3">
+                <div class="row">
+                  <div class="col-12 offset-1">
+                    <label id="#bb"> Enter Your Music
+                      <input id="file" type="file" (change)="onSelectFile($event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div *ngSwitchCase="'imagetext'">
+              <div class="col-12">
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">SubTitle</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="subtitle">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Title</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="title">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Description</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="description">
+                  </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                  <nz-form-label [nzSm]="6" [nzXs]="24">Url</nz-form-label>
+                  <nz-form-control [nzSm]="14" [nzXs]="24">
+                    <input nz-input formControlName="url">
+                  </nz-form-control>
+                </nz-form-item>
+              </div>
+              <div class="col-12 offset-3 mt-3">
+                <div class="row">
+                  <div class="col-12 offset-1">
+                    <label id="#bb"> Enter Your File
+                      <input id="file" type="file" (change)="onSelectFile($event)">
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- ///////////////////////////////////////////////////////////////////////////// -->
+
+
+        </nz-form-item>
+      </div>
+      <div class="col-4 offset-4">
+        <div class="row">
+          <div class="col-11 offset-1">
+            <button
+              nz-button
+              [nzType]="'primary'"
+              [nzLoading]="uploading"
+              (click)="handleUpload()"
+              [disabled]="validateForm.invalid"
+              style="width: 100%">
+              {{ uploading ? 'Uploading' : 'Start Upload' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+

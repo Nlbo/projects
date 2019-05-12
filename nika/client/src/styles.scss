@@ -1,0 +1,172 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.h-20 {
+  height: 20%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.custom-page {
+  height: calc(100vh - 100px);
+  overflow: auto;
+  //border: 1px solid black;
+}
+
+.custom-container {
+  padding: 50px;
+}
+
+
+.bg-size-small {
+  width: 20%;
+  height: calc(20vw - 20px);
+  //border: 1px solid black;
+}
+
+.bg-size-middle {
+  width: 40%;
+  height: calc(40vw - 40px);
+  //border: 1px solid black;
+}
+
+.bg-size-large {
+  width: 60%;
+  height: calc(40vw - 40px);
+  //border: 1px solid black;
+}
+
+
+.parent-large {
+  .bg-size-small {
+    width: 33.33335%;
+    height: calc(20vw - 20px);
+    //border: 1px solid black;
+  }
+
+  .bg-size-middle {
+    width: 66.6668%;
+    height: calc(40vw - 40px);
+    //border: 1px solid black;
+  }
+
+  .bg-size-large {
+    width: 100%;
+    height: calc(40vw - 40px);
+    //border: 1px solid black;
+  }
+}
+
+
+.parent-middle {
+  .bg-size-small {
+    width: 50%;
+    height: calc(20vw - 20px);
+    //border: 1px solid black;
+  }
+
+  .bg-size-middle {
+    width: 100%;
+    height: calc(40vw - 40px);
+    //border: 1px solid black;
+  }
+
+}
+
+.parent-small {
+  .bg-size-small {
+    width: 100%;
+    height: calc(20vw - 20px);
+    //border: 1px solid black;
+  }
+}
+
+
+.bg-color-red {
+  background: red;
+}
+
+.bg-color-yellow {
+  background: yellow;
+}
+
+.bg-color-brown {
+  background: brown;
+}
+
+.bg-color-green {
+  background: green;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.contact {
+  .mat-grid-tile .mat-figure {
+    justify-content: unset !important;
+  }
+
+  .mat-form-field {
+    width: 90%;
+  }
+}
+
+.menu-animation {
+  height: auto !important;
+  position: fixed;
+  top: 0;
+  width: calc((100vw - 116px) / 12 * 3);
+  z-index: 10000;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.restore {
+  height: calc((100vw - 116px) / 12 * 3) !important;
+}
+
+.footer-wrapper {
+  width: calc((100vw - 116px) / 12 * 3) !important;
+  height: calc((100vw - 116px) / 12 * 3) !important;
+}
+.hidden-footer{
+  position: fixed;
+  top: 50%;
+  z-index: 10000;
+  display: none;
+}
+.top50{
+  top: 50% !important;
+}
+//==================================================================================
+//===============================  scroll styles  ==================================
+//==================================================================================
+
+/* width */
+::-webkit-scrollbar {
+   width: 10px;
+ }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

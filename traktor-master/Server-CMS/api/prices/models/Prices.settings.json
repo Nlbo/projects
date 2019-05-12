@@ -1,0 +1,23 @@
+{
+  "connection": "default",
+  "collectionName": "prices",
+  "info": {
+    "name": "prices",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "header": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "prices": {
+      "default": "",
+      "type": "json",
+      "required": true
+    }
+  }
+}

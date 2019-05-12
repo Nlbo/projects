@@ -1,0 +1,37 @@
+a{
+  text-decoration: none;
+  color: #000;
+}
+.blog-logo {
+  padding: 20px;
+  width: fit-content;
+  background: burlywood;
+  font-weight: bold;
+  @media (max-width: 1600px) {
+    padding: 10px;
+  }
+}
+
+.content {
+  padding: 35px;
+  @media (max-width: 1600px) {
+    padding: 0 10px;
+  }
+}
+
+.blog-title {
+  font-size: 35px;
+  font-weight: bold;
+  padding-top: 10px;
+  @media (max-width: 1600px) {
+    font-size: 25px;
+    padding-top: 0px;
+  }
+}
+
+.blog-description {
+  @media (max-width: 1600px) {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+}

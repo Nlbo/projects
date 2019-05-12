@@ -1,0 +1,39 @@
+{
+  "name": "playtimeserver",
+  "version": "1.0.0",
+  "description": "PlayTimeServer",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nlbo/PlayTimeServer.git"
+  },
+  "keywords": [
+    "nlbo"
+  ],
+  "author": "Erik Nalbandyan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nlbo/PlayTimeServer/issues"
+  },
+  "homepage": "https://github.com/Nlbo/PlayTimeServer#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "async-waterfall": "^0.1.5",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.5",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.9",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "rotating-file-stream": "^1.4.0",
+    "sharp": "^0.21.2"
+  }
+}

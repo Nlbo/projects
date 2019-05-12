@@ -1,0 +1,17 @@
+{
+  "host": "155.138.197.221",
+  "port": 80,
+  "production": true,
+  "proxy": {
+    "enabled": false
+  },
+  "autoReload": {
+    "enabled": false
+  },
+  "cron": {
+    "enabled": false
+  },
+  "admin": {
+    "autoOpen": false
+  }
+}

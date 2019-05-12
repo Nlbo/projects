@@ -1,0 +1,20 @@
+<div class="custom-container pt-0" *ngIf="done">
+  <div class="row">
+    <div class="col-4">
+      <div class="img-wrapper img">
+        <img class="" [src]="(imgPath + story.image)" alt="image">
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="detail-title">
+        {{story.title}}
+      </div>
+      <div class="detail-description">
+        {{story.description}}
+      </div>
+      <div [innerHTML]="story.content"></div>
+    </div>
+
+  </div>
+</div>

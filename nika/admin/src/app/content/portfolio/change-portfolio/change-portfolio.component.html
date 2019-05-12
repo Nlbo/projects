@@ -1,0 +1,86 @@
+<form [formGroup]="validateForm" >
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nz-upload
+          nzType="drag"
+          [nzLimit]="1"
+          [(nzFileList)]="fileList"
+          [nzBeforeUpload]="beforeUpload">
+          <p class="ant-upload-drag-icon">
+            <i nz-icon type="inbox"></i>
+          </p>
+          <p class="ant-upload-text">Click or drag file to this area to upload</p>
+          <p class="ant-upload-hint">
+            Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files
+          </p>
+        </nz-upload>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 mt-5">
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Show Images</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <button class="btn btn-primary" (click)="showModal()">Show</button>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Title</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="title">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Link</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="link">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Description</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="description">
+          </nz-form-control>
+        </nz-form-item>
+
+      </div>
+      <div class="col-4 offset-4">
+        <div class="row">
+          <div class="col-11 offset-1">
+            <button
+              nz-button
+              [nzType]="'primary'"
+              [nzLoading]="uploading"
+              (click)="handleUpload()"
+              [disabled]="portfolio.imgs.length == 0 && fileList.length == 0"
+              style="width: 100%"
+            >
+              {{ uploading ? 'Uploading' : 'Start Upload' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Title"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let image of portfolio.imgs">
+        <img class="img-thumbnail" [src]="url + image" alt="">
+        <button class="btn btn-danger" style="width: 100%;" (click)="deleteImage(image)">DELETE</button>
+      </div>
+    </div>
+  </div>
+</nz-modal>
+

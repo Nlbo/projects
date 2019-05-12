@@ -1,0 +1,48 @@
+.custom-page {
+  border: none !important;
+  padding: 200px;
+
+  .about-desc-title {
+    font-family: Open Sansf;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1.36;
+    letter-spacing: -3.2px;
+  }
+
+  .about-desc-sub-title {
+    font-family: Open Sans;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: -0.4px;
+  }
+
+  .about-desc-description{
+    font-family: Open Sans;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.36;
+    letter-spacing: -0.4px;
+    color: #000a1d;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+///* Track */
+//::-webkit-scrollbar-track {
+//  background: #f1f1f1;
+//}
+//
+///* Handle */
+//::-webkit-scrollbar-thumb {
+//  background: #888;
+//}
+//
+///* Handle on hover */
+//::-webkit-scrollbar-thumb:hover {
+//  background: #555;
+//}

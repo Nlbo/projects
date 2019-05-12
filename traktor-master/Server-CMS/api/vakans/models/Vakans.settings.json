@@ -1,0 +1,43 @@
+{
+  "connection": "default",
+  "collectionName": "vakans",
+  "info": {
+    "name": "vakans",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    },
+    "info": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "name": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "car": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "default": "",
+      "type": "string"
+    },
+    "about": {
+      "default": "",
+      "type": "text",
+      "required": true
+    }
+  }
+}

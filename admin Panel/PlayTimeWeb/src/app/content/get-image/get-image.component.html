@@ -1,0 +1,41 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-1 offset-11 mb-3">
+      <button style="text-align: center;padding-bottom: 10px;" class="btn btn-success" (click)="rout()"><i nz-icon type="folder-add" theme="outline"></i></button>
+    </div>
+  </div>
+  <div class="row" [sortablejs]="cycleData" [sortablejsOptions]="options">
+    <div class="col-4 mt-2" *ngFor="let item of cycleData">
+      <nz-card style="width:300px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting,actionEdit,actionEllipsis]">
+        <nz-card-meta *ngIf="item.subCategory !== 'unSubCategory'" nzTitle="{{item.category + ' - ' + item.subCategory}}" nzDescription="{{item.showDate}}" [nzAvatar]="avatarTemplate"></nz-card-meta>
+        <nz-card-meta *ngIf="item.subCategory === 'unSubCategory'" nzTitle="{{item.category}}" nzDescription="{{item.showDate}}" [nzAvatar]="avatarTemplate"></nz-card-meta>
+      </nz-card>
+      <ng-template #avatarTemplate>
+        <nz-avatar  nzSrc="{{item.thumbnailPath}}"></nz-avatar>
+      </ng-template>
+      <ng-template #coverTemplate>
+        <img class="img-fluid" style="max-width: 300px;max-height: 300px;" alt="example" src="{{item.path}}"/>
+      </ng-template>
+      <ng-template #actionSetting>
+        <i nz-icon type="setting" (click)="changeImage(item)"></i>
+      </ng-template>
+      <ng-template  #actionEdit>
+        <i *ngIf="removed" (click)="recoverImage(item)" nz-icon type="edit"></i>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <i nz-icon type="delete" (click)="removeImage(item)"></i>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!removed" class="container mt-3">
+  <div class="row">
+    <div class="col-6 offset-3">
+      <button [ngStyle]="{'background-color':disabled === false ? '' : 'gray', 'border':disabled === false ? '' : '1px solid gray' }" style="width: 100%" class="btn btn-success" (click)="save()">SAVE</button>
+    </div>
+  </div>
+</div>

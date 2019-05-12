@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vakans",
+      "handler": "Vakans.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vakans/count",
+      "handler": "Vakans.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vakans/:_id",
+      "handler": "Vakans.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vakans",
+      "handler": "Vakans.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vakans/:_id",
+      "handler": "Vakans.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vakans/:_id",
+      "handler": "Vakans.destroy",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

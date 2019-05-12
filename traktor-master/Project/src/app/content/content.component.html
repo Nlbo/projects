@@ -1,0 +1,62 @@
+
+<section id="about">
+  <app-slider></app-slider>
+</section><!-- About end -->
+
+<!-- Why us -->
+<section id="why_us">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="head_title">
+          <h2>Почему выбрать нас ?</h2>
+          <p>Наша компания на рынке Москвы и Московской области уже 7 лет. Предоставляем в аренду автокраны, экскаватор-погрузчики, экскаваторы колесные и гусеничные, автовышки, самосвалы.</p>
+
+        </div>
+      </div>
+    </div>
+      <app-work-cars style="cursor: pointer" (click)="goToCarsList(car)" *ngFor="let car of cars" [data]="car" [ngClass]="{'avtokran': car.category === 'avtokran', 'avtovishka': car.category === 'avtovishka'}" ></app-work-cars>
+  </div>
+</section><!-- Why us end -->
+
+<!-- Services -->
+<section id="services">
+  <div class="container">
+    <h2>Вакансии</h2>
+    <div class="row">
+      <app-work-example  *ngFor="let work of workExamples" [data]="work"></app-work-example>
+    </div>
+  </div>
+</section><!-- Services end -->
+
+
+<!-- Portfolio -->
+<section id="portfolio">
+  <div class="container">
+    <div class="row">
+      <app-info *ngFor="let item of prices" [data]="item"></app-info>
+    </div>
+  </div>
+</section><!-- Portfolio end -->
+
+<!-- Portfolio end -->
+
+<!-- Testimonial -->
+<section id="testimonial">
+  <div class="container text-center testimonial_area">
+    <h2>Спец предлжения</h2>
+    <!--<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,</p>-->
+    <div class="row">
+      <app-recomendation *ngFor="let work of vakans" [data]="work"></app-recomendation>
+    </div>
+  </div>
+</section><!-- Testimonial end -->
+
+
+<section id="contact_form">
+  <div class="container">
+    <div class="row">
+      <app-map></app-map>
+    </div>
+  </div>
+</section>

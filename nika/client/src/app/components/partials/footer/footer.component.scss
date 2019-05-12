@@ -1,0 +1,19 @@
+.content {
+  padding: 20px;
+  .title{
+    width: 80%;
+    font-size: 2em;
+    color: #ffffff;
+    @media (max-width: 1400px) {
+      font-size: 1.5em;
+    }
+    @media (max-width: 1200px) {
+      font-size: 1.2em;
+    }
+}
+  .link a{
+    font-size: 25px;
+    //text-decoration: none;
+    color: white;
+}
+}

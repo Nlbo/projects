@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "workexample",
+  "info": {
+    "name": "workexample",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "about": {
+      "default": "",
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "default": "",
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="custom-container">
+    <div class="row p-0 m-0">
+        <div class="side-bar col-3 p-0">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-9 p-0">
+            <div *ngIf="path == ''">
+                <app-home></app-home>
+            </div>
+            <div *ngIf="path == '/contact'">
+                <app-contact></app-contact>
+            </div>
+            <div *ngIf="path == '/about'">
+                <app-about></app-about>
+            </div>
+            <div *ngIf="path == '/works'">
+                <app-work-desc></app-work-desc>
+            </div>
+            <div *ngIf="path == '/stories'">
+                <app-stories-desc></app-stories-desc>
+            </div>
+            <div *ngIf="path == '/careers'">
+                <app-careers></app-careers>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <router-outlet></router-outlet>
+
+<div class="clearfix"></div>
+<div style="height: 200px;"></div>

@@ -1,0 +1,20 @@
+<nz-table #middleTable nzSize="middle" [nzData]="blocks" [nzPageSize]="8">
+  <thead>
+  <tr>
+    <th>Size</th>
+    <th>Type</th>
+    <th><button style="text-align: center;padding-bottom: 10px; margin: 0 5px 0 5px;" class="btn btn-success float-right" (click)="add()"><i nz-icon type="folder-add" theme="outline"></i></button></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of middleTable.data">
+    <td>{{ data.size }}</td>
+    <td>{{ data.type }}</td>
+    <td>
+      <i nz-icon type="delete" theme="outline" class="_btn_delete float-right" (click)="showDeleteConfirm(data)"></i>
+      <nz-divider nzType="vertical" class="float-right"></nz-divider>
+      <i nz-icon type="edit" theme="outline" class="_btn_edit float-right" (click)="edit(data)"></i>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>

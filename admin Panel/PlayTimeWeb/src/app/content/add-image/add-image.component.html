@@ -1,0 +1,61 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<!--<div class="container">-->
+  <!--<div class="row">-->
+    <!--<div class="col-12 mb-1" style="max-height: 600px;">-->
+      <!--<nz-upload-->
+        <!--nzType="drag"-->
+        <!--[nzMultiple]="true"-->
+        <!--[nzLimit]="2"-->
+        <!--[nzName]="'image'"-->
+        <!--[nzData]="{category: category, subCategory: subCategory, showDate: showDate}"-->
+        <!--nzAction="{{ip}}"-->
+        <!--(nzChange)="handleChange($event)">-->
+        <!--<p class="ant-upload-drag-icon">-->
+          <!--<i nz-icon type="inbox"></i>-->
+        <!--</p>-->
+        <!--<p class="ant-upload-text">Click or drag file to this area to upload</p>-->
+      <!--</nz-upload>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+<div class="container">
+  <div class="row">
+    <div style="text-align: center;" class="col-4 offset-4">
+      <nz-upload style="text-align: center;"
+        [(nzFileList)]="fileList"
+        [nzBeforeUpload]="beforeUpload">
+        <button nz-button>
+          <i nz-icon type="upload"></i><span>Select File</span>
+        </button>
+      </nz-upload>
+    </div>
+    <div class="col-12">
+      <div  class="col-4 offset-4 mt-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span style="text-align: center;" class="input-group-text" id="inputGroup-sizing-default">Category - {{category}}</span>
+          </div>
+        </div>
+        <div *ngIf="subCategory !== 'unSubCategory'" class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span  style="text-align: center;"  class="input-group-text" id="inputGroup-sizing-default">SubCategory - {{subCategory}}</span>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">ShowDate</span>
+          </div>
+          <input [(ngModel)]="showDate" type="text" placeholder="YYYY-MM-DD" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center;" class="col-4 offset-4">
+      <button nz-button [nzType]="'primary'" [nzLoading]="uploading" (click)="handleUpload()" [disabled]="fileList.length == 0" style="margin-top: 16px">
+        {{ uploading ? 'Uploading' : 'Start Upload' }}
+      </button>
+    </div>
+  </div>
+</div>

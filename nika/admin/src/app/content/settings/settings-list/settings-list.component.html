@@ -1,0 +1,32 @@
+<div class="col-6 offset-3">
+<nav class="navbar navbar-light bg-light text-center">
+<input [(ngModel)]="key" class="form-control" style="width: 30%" type="search" placeholder="Key" aria-label="Search">
+<input [(ngModel)]="value" class="form-control ml-2" style="width: 30%" type="search" placeholder="Value" aria-label="Search">
+<button style="width: 30%;" class="btn btn-success ml-2 float-right" (click)="add()">Add Settings</button>
+</nav>
+</div>
+
+<table class="table">
+<thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Controllers</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let data of settings;let i = index">
+<td>{{data.key}}</td>
+<td>
+  <p [id]="'p' + i">{{data.value}}</p>
+  <input [id]="'input' + i"  type="hidden" [(ngModel)]="input" nz-input placeholder="small size" nzSize="small" style="width: 60%" />
+  <button [id]="'button' + i" class="btn btn-warning ml-2" style="display: none" (click)="change(data.key, input, 'input' + i, 'button' + i,'p' + i)">Change</button>
+</td>
+<td >
+<i nz-icon type="edit" theme="outline" class="_btn_edit" (click)="edit(data.key, data.value,'input' + i, 'p' + i, 'button' + i)"></i>
+<nz-divider nzType="vertical"></nz-divider>
+<i nz-icon type="delete" theme="outline" class="_btn_delete" (click)="showDeleteConfirm(data.key)"></i>
+</td>
+</tr>
+</tbody>
+</table>

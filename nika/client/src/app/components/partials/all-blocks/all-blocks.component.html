@@ -1,0 +1,56 @@
+<div class="all-blocks custom-container pt-0 pb-0">
+
+    <div *ngFor="let group of groups">
+        <div class="parent-{{group.type}} block-wrapper mt-0 float-left bg-size-{{group.type}}">
+            <div *ngFor="let block of group.data">
+                <div *ngIf="block.category == 'blog'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}"
+                         [ngStyle]="{'background-color' : block.bg}">
+                        <app-blog-block [block]="block"></app-blog-block>
+                    </div>
+                </div>
+
+                <div *ngIf="block.category == 'image'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}">
+
+                        <app-image-block [block]="block"></app-image-block>
+                    </div>
+                </div>
+
+                <div *ngIf="block.category == 'bg-image'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}">
+                        <app-bg-image-block [block]="block"></app-bg-image-block>
+                    </div>
+                </div>
+
+                <div *ngIf="block.category == 'image-text'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}"
+                         [ngStyle]="{'background-color' : block.bg}">
+                        <app-text-image-block [block]="block"></app-text-image-block>
+                    </div>
+                </div>
+
+                <div *ngIf="block.category == 'video'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}"
+                         [ngStyle]="{'background-color' : block.bg}">
+                        <app-video-block [block]="block"></app-video-block>
+                    </div>
+                </div>
+
+
+
+                <div *ngIf="block.category == 'link'">
+                    <div class="block-wrapper mt-0 float-left bg-size-{{block.size}}"
+                         [ngStyle]="{'background-color' : block.bg}">
+                        <app-link-block [block]="block"></app-link-block>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

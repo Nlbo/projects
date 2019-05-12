@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <button style="text-align: center;padding-bottom: 10px; margin: 0 5px 0 5px;" class="btn btn-success float-right" (click)="addMedia()"><i nz-icon type="folder-add" theme="outline"></i></button>
+    </div>
+  </div>
+  <nz-table #middleTable nzSize="middle" [nzData]="medias" [nzPageSize]="8">
+  <div class="row">
+    <div class="col-3 mt-3" *ngFor="let media of middleTable.data">
+      <nz-card style="width:250px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+        <nz-card-meta
+          nzTitle="{{media.type}}"
+          nzDescription="media.alt"
+          [nzAvatar]="avatarTemplate"
+        ></nz-card-meta>
+      </nz-card>
+      <ng-template #coverTemplate>
+        <img class="img-fluid" alt="example" [src]="url + media.image" />
+      </ng-template>
+      <ng-template #actionSetting>
+        <i nz-icon type="edit" (click)="edit(media)"></i>
+      </ng-template>
+      <ng-template #actionEdit>
+        <i nz-icon type="eye" theme="outline"></i>
+      </ng-template>
+      <ng-template #actionEllipsis>
+        <i nz-icon type="delete" (click)="showDeleteConfirm(media)"></i>
+      </ng-template>
+    </div>
+  </div>
+  </nz-table>
+</div>
+
+

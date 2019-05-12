@@ -1,0 +1,45 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-4 offset-4">
+      <input  nz-input [(ngModel)]="language" (input)="onInput($event.target?.value)" [nzAutocomplete]="auto">
+      <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+    </div>
+    </div>
+  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <h3 style="text-align: center">Categories</h3>
+    </div>
+    <div class="col-4 offset-4">
+      <h3 style="text-align: center">SubCategories</h3>
+    </div>
+  </div>
+  <div style="border-bottom: 1px solid gray" class="row mt-3" *ngFor="let item of cycleData">
+    <div class="col-4">
+      <div  class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">{{item.category}}</span>
+        </div>
+        <input  type="text" class="form-control categories" placeholder="{{item.category}}" value="{{item.category}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+    <div class="col-4 offset-4">
+      <div *ngFor="let items of item.subCategories" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">{{items.subCategory}}</span>
+        </div>
+        <input  type="text" class="form-control subcategories" placeholder="{{item.category}}" name="{{items.subCategory}}" value="{{items.subCategory}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6 offset-3">
+      <button class="btn btn-success" style="width: 100%;" (click)="save()">SAVE</button>
+    </div>
+  </div>
+</div>
+

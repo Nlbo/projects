@@ -1,0 +1,71 @@
+<form [formGroup]="validateForm" >
+  <div class="container">
+    <div class="row">
+      <div *ngIf="imgFlag" class="col-12">
+        <div class="row">
+          <div class="col-4 offset-4">
+            <img class="img-fluid" [src]="url + img" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-6 offset-3 mt-5">
+        <nz-form-item>
+          <div class="row">
+            <div class="col-12">
+              <button style="width: 100%" nz-button nzType="primary" (click)="showModal()">
+                <span>Choose Image</span>
+              </button>
+              <input nz-input type="hidden" formControlName="img">
+            </div>
+          </div>
+          <nz-form-item class="mt-3">
+            <nz-form-label [nzSm]="6" [nzXs]="24">Title</nz-form-label>
+            <nz-form-control [nzSm]="14" [nzXs]="24">
+              <input nz-input formControlName="title">
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Description</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="description">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" >Url</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="url">
+          </nz-form-control>
+        </nz-form-item>
+      </div>
+      <div class="col-4 offset-4">
+        <div class="row">
+          <div class="col-11 offset-1">
+            <button
+              nz-button
+              (click)="handleUpload()"
+              [disabled]="validateForm.invalid"
+              style="width: 100%">
+              {{ uploading ? 'Uploading' : 'Start Upload' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Title"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let image of images">
+        <img class="img-thumbnail" (click)="chooseImage(image)" [src]="url + image.image" alt="">
+      </div>
+    </div>
+  </div>
+</nz-modal>

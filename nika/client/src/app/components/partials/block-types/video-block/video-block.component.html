@@ -1,0 +1,27 @@
+<div class="video-block h-100 bg-black"
+     (mouseenter)="toggleAutoplay()"
+     (mouseleave)="toggleAutoplay()"
+
+>
+  <video #videoElement
+         class="h-100 w-100"
+         [loop]="true"
+         [volume]=".8"
+         [autoplay]="play"
+         [muted]=false>
+    <source src="../../../../assets/video/{{block.content.video}}" type="video/mp4"/>
+  </video>
+
+  <div #videoLogo class="on-content w-100">
+    <div class="video-title row">
+      <div class="logo col-6 text-right">
+        <div class="round-border">
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="col-6">
+        {{block.content.title | uppercase}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div *ngIf="msgflag" class="alert" [ngClass]="{'alert-danger': !flag, 'alert-success': flag}" role="alert">
+  {{message}}
+</div>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-6 offset-3">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Category</span>
+        </div>
+        <input [(ngModel)]="categoryname" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div *ngFor="let item of cycleData" class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">{{item.language + ' - ' + item.code}}</span>
+        </div>
+        <input *ngIf="item.code !== 'en'" type="text" class="form-control languagesInput" name="{{item.code}}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input *ngIf="item.code === 'en'" [(ngModel)]="categoryname" name="{{item.code}}"  type="text" class="form-control language" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+    </div>
+    <div class="col-4 offset-4"></div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-6 offset-3">
+      <button class="btn btn-success" style="width: 100%;" (click)="save()">SAVE</button>
+    </div>
+  </div>
+</div>

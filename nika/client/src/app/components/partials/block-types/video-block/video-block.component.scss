@@ -1,0 +1,50 @@
+.video-block{
+  position: relative;
+}
+.bg-black{
+  background: #000;
+}
+.video-block video{
+  object-fit: scale-down;
+}
+
+.round-border{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  float: right;
+  border: 3px solid white;
+  border-radius: 50%;
+  line-height: 70px;
+  height: 80px;
+  width: 80px;
+  text-align: center;
+  @media (max-width: 1600px){
+    line-height: 44px;
+    height: 50px;
+    width: 50px;
+  }
+}
+.round-border i{
+  margin-left: 10px;
+  @media (max-width: 1600px){
+    margin-left: 5px;
+  }
+}
+.on-content{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.video-title{
+  font-size: 35px;
+  font-weight: bold;
+  color: white;
+  @media (max-width: 1600px){
+    font-size: 28px;
+  }
+}
+.video-title p{
+}

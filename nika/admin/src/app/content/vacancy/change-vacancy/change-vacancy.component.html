@@ -1,0 +1,59 @@
+<form [formGroup]="validateForm" (ngSubmit)="handleUpload()">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-4 offset-4">
+            <img class="img-fluid" [src]="previewImage" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 offset-3 mt-3">
+        <div class="row">
+          <div class="col-12 offset-2">
+            <label id="#bb"> Enter Your File
+              <input id="file" type="file" (change)="onSelectFile($event)">
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 offset-3 mt-2 ">
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24">Image Alt</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="alt">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24">Title</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="title">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24">Content</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="content">
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24">Description</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24">
+            <input nz-input formControlName="description">
+          </nz-form-control>
+        </nz-form-item>
+
+      </div>
+      <div class="col-4 offset-4">
+        <div class="row">
+          <div class="col-11 offset-1">
+            <button type="submit"  nz-button style="width: 100%;" [nzLoading]="uploading" [disabled]="validateForm.invalid">
+              {{ uploading ? 'Uploading' : 'Start Upload' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+

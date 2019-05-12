@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+.ck-editor__editable {
+  width: 100%;
+  min-height: 300px;
+}
+.ant-layout-sider-children{
+  height: 100vh;
+}

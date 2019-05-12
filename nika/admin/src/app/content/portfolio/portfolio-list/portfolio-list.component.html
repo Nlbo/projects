@@ -1,0 +1,50 @@
+
+<nz-table #middleTable nzSize="middle" [nzData]="portfolios" [nzPageSize]="4">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <button style="text-align: center;padding-bottom: 10px; margin: 0 5px 0 5px;" class="btn btn-success float-right" (click)="addPortfolio()"><i nz-icon type="folder-add" theme="outline"></i></button>
+      </div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-6 mt-3" *ngFor="let portfolio of middleTable.data">
+        <nz-card style="width:100%;" nzTitle="{{portfolio.title}}" [nzExtra]="extraTemplate">
+          <div class="row">
+            <div class="col-3">
+              <img title="Show more images..." class="img-thumbnail" [src]="url + portfolio.imgs[0]" (click)="showModal(portfolio.imgs)" alt="">
+            </div>
+            <div class="col-9">
+              <p>{{portfolio.description}}</p>
+            </div>
+            <div class="col-12">
+              <a href="" class="float-right">{{portfolio.link}}</a>
+            </div>
+          </div>
+        </nz-card>
+        <ng-template #extraTemplate>
+          <i nz-icon type="edit" theme="outline" class="_btn_edit" (click)="edit(portfolio)"></i>
+          <nz-divider nzType="vertical"></nz-divider>
+          <i nz-icon type="delete" theme="outline" class="_btn_delete" (click)="showDeleteConfirm(portfolio)"></i>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nz-table>
+
+
+
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Modal Title"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 mt-2" *ngFor="let image of images">
+        <img class="img-thumbnail" [src]="url + image" alt="">
+      </div>
+    </div>
+  </div>
+</nz-modal>

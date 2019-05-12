@@ -1,0 +1,13 @@
+<div class="footer-wrapper mt-0 float-left">
+    <div class="link-block h-100"
+         [ngStyle]="{'background-color' : footer.data.bg}">
+        <div class="content h-100">
+            <div class="content-wrapper h-100">
+                <div class="title h-80">{{footer.data.content.title}}</div>
+                <div class="link h-20">
+                    <a target="_blank" [href]="footer.data.content.url">{{footer.data.content.link}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

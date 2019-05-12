@@ -1,0 +1,21 @@
+<div class="home-page bg-light" *ngIf="done">
+    <owl-carousel-o [options]="options">
+        <ng-template *ngFor="let item of slides, let i = index" class="h-100" carouselSlide>
+            <div class="my-slider-item" routerLink="/{{item.url}}"
+                 [ngStyle]="{'background-image': 'url(' + imageUrl + item.image + ')'}">
+                <!--<span role="img" aria-label="{{item.alt}}"> </span>-->
+                <div class="item-content">
+                    <div class="row">
+                        <div class="item-text col-10">
+                            <div class="item-title">{{item.title}}</div>
+                            <div class="item-description">{{ item.description }}</div>
+                        </div>
+                        <div class="items-counter col-2">
+                            <span class="float-right">{{i + 1}}/{{slides.length}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </owl-carousel-o>
+</div>
